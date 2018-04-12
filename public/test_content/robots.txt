@@ -1,0 +1,12 @@
+User-agent: Yandex
+Allow: /folder1/
+Disallow: /file1.html
+Host: www.site.ru
+
+User-agent: *
+Disallow: /document.php
+Disallow: /folderxxx/
+Disallow: /folderyyy/folderzzz
+Disallow: /feed/
+
+Sitemap: http://www.site.ru/sitemap.xml
