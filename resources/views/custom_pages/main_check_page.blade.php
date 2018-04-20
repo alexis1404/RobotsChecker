@@ -64,7 +64,7 @@
                 </tr>
             @endif
 
-            @if($check_list['hosts_dir'] && !$check_list['statusfail'] && !$check_list['no_robots'])
+            @if($check_list['hosts_dir'] && !$check_list['no_robots'])
                     <tr>
                         <td>6</td>
                         <td>Проверка указания директивы Host</td>
@@ -72,7 +72,7 @@
                         <td>Состояние: Директива Host указана</td>
                         <td>Рекомендации: доработки не требуются</td>
                     </tr>
-                @elseif(!$check_list['hosts_dir'] && !$check_list['statusfail'] && !$check_list['no_robots'])
+                @elseif(!$check_list['hosts_dir'] && !$check_list['no_robots'])
                     <tr>
                         <td>6</td>
                         <td>Проверка указания директивы Host</td>
@@ -86,7 +86,7 @@
                     </tr>
             @endif
 
-                @if($check_list['hosts_dir'] && $check_list['hosts_dir'] == 1 && !$check_list['statusfail'] && !$check_list['no_robots'])
+                @if($check_list['hosts_dir'] && $check_list['hosts_dir'] == 1 && !$check_list['no_robots'])
                     <tr>
                         <td>8</td>
                         <td>Проверка количества директивы Host прописанной в файле</td>
@@ -94,7 +94,7 @@
                         <td>Состояние: В файле прописана одна директива Host</td>
                         <td>Рекомендации: доработки не требуются</td>
                     </tr>
-                @elseif($check_list['hosts_dir'] && $check_list['hosts_dir'] > 1 && !$check_list['statusfail'] && !$check_list['no_robots'])
+                @elseif($check_list['hosts_dir'] && $check_list['hosts_dir'] > 1 && !$check_list['no_robots'])
                     <tr>
                         <td>8</td>
                         <td>Проверка количества директив Host прописанных в файле</td>
@@ -107,7 +107,7 @@
                 @endif
 
 
-                @if(!$check_list['statusfail'] && !$check_list['no_robots'] && $check_list['file_size'] < 3200)
+                @if(!$check_list['no_robots'] && $check_list['file_size'] < 3200)
                     <tr>
                         <td>10</td>
                         <td>Проверка размера файла robots.txt</td>
@@ -115,7 +115,7 @@
                         <td>Состояние: Размер файла robots.txt составляет {{$check_list['file_size']}} байт, что находится в пределах допустимой нормы</td>
                         <td>Рекомендации: доработки не требуются</td>
                     </tr>
-                @elseif(!$check_list['statusfail'] && !$check_list['no_robots'] && $check_list['file_size'] > 3200)
+                @elseif(!$check_list['no_robots'] && $check_list['file_size'] > 3200)
                     <tr>
                         <td>10</td>
                         <td>Проверка размера файла robots.txt</td>
@@ -126,7 +126,7 @@
                     </tr>
                 @endif
 
-                @if(!$check_list['statusfail'] && !$check_list['no_robots'] && $check_list['sitemap'])
+                @if(!$check_list['no_robots'] && $check_list['sitemap'])
                     <tr>
                         <td>11</td>
                         <td>Проверка указания директивы Sitemap</td>
@@ -134,7 +134,7 @@
                         <td>Состояние: директива Sitemap указана</td>
                         <td>Рекомендации: доработки не требуются</td>
                     </tr>
-                @elseif(!$check_list['statusfail'] && !$check_list['no_robots'] && !$check_list['sitemap'])
+                @elseif(!$check_list['no_robots'] && !$check_list['sitemap'])
                     <tr>
                         <td>11</td>
                         <td>Проверка указания директивы Sitemap</td>

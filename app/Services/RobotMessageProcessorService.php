@@ -225,7 +225,7 @@ class RobotMessageProcessorService
                     });
                 }
 
-                if($check_status['hosts_dir'] && !$check_status['statusfail'] && !$check_status['no_robots']){
+                if($check_status['hosts_dir'] && !$check_status['no_robots']){
 
                     $sheet->row(5, [
                         '6',
@@ -241,7 +241,7 @@ class RobotMessageProcessorService
 
                     });
 
-                }elseif (!$check_status['hosts_dir'] && !$check_status['statusfail'] && !$check_status['no_robots']){
+                }elseif (!$check_status['hosts_dir'] && !$check_status['no_robots']){
 
                     $sheet->row(5, [
                         '6',
@@ -262,7 +262,7 @@ class RobotMessageProcessorService
                     });
                 }
 
-                if($check_status['hosts_dir'] && $check_status['hosts_dir'] == 1 && !$check_status['statusfail'] && !$check_status['no_robots']){
+                if($check_status['hosts_dir'] && $check_status['hosts_dir'] == 1 && !$check_status['no_robots']){
 
                     $sheet->row(7, [
                         '8',
@@ -278,7 +278,7 @@ class RobotMessageProcessorService
 
                     });
 
-                }elseif ($check_status['hosts_dir'] && $check_status['hosts_dir'] > 1 && !$check_status['statusfail'] && !$check_status['no_robots']){
+                }elseif ($check_status['hosts_dir'] && $check_status['hosts_dir'] > 1 && !$check_status['no_robots']){
 
                     $sheet->row(7, [
                         '8',
@@ -297,7 +297,7 @@ class RobotMessageProcessorService
                     });
                 }
 
-                if(!$check_status['statusfail'] && !$check_status['no_robots'] && $check_status['file_size'] < 3200){
+                if(!$check_status['no_robots'] && $check_status['file_size'] < 3200){
 
                     $sheet->row(9, [
                         '10',
@@ -313,7 +313,7 @@ class RobotMessageProcessorService
 
                     });
 
-                }elseif (!$check_status['statusfail'] && !$check_status['no_robots'] && $check_status['file_size'] > 3200){
+                }elseif (!$check_status['no_robots'] && $check_status['file_size'] > 3200){
 
                     $sheet->row(9, [
                         '10',
@@ -331,7 +331,7 @@ class RobotMessageProcessorService
                     });
                 }
 
-                if(!$check_status['statusfail'] && !$check_status['no_robots'] && $check_status['sitemap']){
+                if(!$check_status['no_robots'] && $check_status['sitemap']){
 
                     $sheet->row(11, [
                         '11',
@@ -347,7 +347,7 @@ class RobotMessageProcessorService
 
                     });
 
-                }elseif (!$check_status['statusfail'] && !$check_status['no_robots'] && !$check_status['sitemap']){
+                }elseif (!$check_status['no_robots'] && !$check_status['sitemap']){
 
                     $sheet->row(11, [
                         '11',

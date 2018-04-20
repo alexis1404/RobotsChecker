@@ -31,12 +31,6 @@ class CheckRobotsService
 
             $check_status['valid_url'] = $valid_url;
 
-            $server_status_code = $this->status_code_checker->checkStatusCode($valid_url);
-
-            $check_status['file_size'] = (integer) $this->getRemoteFileSize($valid_url . '/robots.txt');
-
-            if($server_status_code == 200){
-
                 $host_direct_count = 0;
                 $sitemap_direct_count = 0;
 
@@ -47,6 +41,17 @@ class CheckRobotsService
 
                     return $check_status;
                 }
+
+            $server_status_code = $this->status_code_checker->checkStatusCode($valid_url);
+
+            $check_status['status_code'] = $server_status_code;
+
+            if($server_status_code != 200){
+
+                $check_status['statusfail'] = $server_status_code;
+            }
+
+            $check_status['file_size'] = (integer) $this->getRemoteFileSize($valid_url . '/robots.txt');
 
                 foreach ($pre_robots as $robot){
                     $temp_str = explode(':', $robot);
@@ -68,17 +73,10 @@ class CheckRobotsService
 
                 $check_status['hosts_dir'] = $host_direct_count;
                 $check_status['sitemap'] = $sitemap_direct_count;
-                $check_status['status_code'] = 200;
                 $check_status['valid_url'] = $url;
 
                 return $check_status;
 
-            }else{
-
-                $check_status['statusfail'] = $server_status_code;
-
-                return $check_status;
-            }
 
         }else{
 
